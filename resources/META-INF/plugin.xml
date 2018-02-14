@@ -1,0 +1,35 @@
+<idea-plugin>
+    <id>com.your.company.unique.plugin.id</id>
+    <name>Plugin display name here</name>
+    <version>1.0</version>
+    <vendor email="contact@pavel-kaminsky.com" url="http://www.pavel-kaminsky.com">YourCompany</vendor>
+
+    <description><![CDATA[
+      Convert any JSON to Typescript or Flow<br>
+      <em>within your IDEA</em>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      version 1<br>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <!-- uncomment to enable plugin in all products
+    <depends>com.intellij.modules.lang</depends>
+    -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="JSON To Types" icon="/com.pavel_kaminsky/ts_icon.png" anchor="right"
+                    factoryClass="com.pavel_kaminsky.J2TToolWindowFactory"/>
+    </extensions>
+
+    <actions>
+    </actions>
+
+
+</idea-plugin>
