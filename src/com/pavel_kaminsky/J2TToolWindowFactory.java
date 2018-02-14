@@ -2,6 +2,7 @@ package com.pavel_kaminsky;
 
 import com.google.api.client.http.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.gson.*;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
@@ -20,18 +21,8 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
     private JButton convertButton;
     private JTextPane outputTextPane;
     private JButton resetButton;
+    private JButton prettifyJSONButton;
     private ToolWindow toolWindow;
-
-
-    public J2TToolWindowFactory() {
-        convertButton.addActionListener(e -> J2TToolWindowFactory.this.convert());
-        resetButton.addActionListener(e -> J2TToolWindowFactory.this.reset());
-    }
-
-    private void reset() {
-        jsonTextArea.setText("");
-        outputTextPane.setText("");
-    }
 
     public void createToolWindowContent(Project project, ToolWindow toolWindow) {
         this.toolWindow = toolWindow;
@@ -40,33 +31,31 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
         toolWindow.getContentManager().addContent(content);
     }
 
-    public void convert() {
+    public J2TToolWindowFactory() {
+        convertButton.addActionListener(e -> J2TToolWindowFactory.this.convert());
+        resetButton.addActionListener(e -> J2TToolWindowFactory.this.reset());
+        prettifyJSONButton.addActionListener(e -> J2TToolWindowFactory.this.prettifyJsonTextArea());
+    }
+
+    private void prettifyJsonTextArea() {
+        String uglyJson = this.jsonTextArea.getText();
+        String prettyJson;
+        try {
+            prettyJson = JSONUtils.prettifyJSON(uglyJson);
+        } catch (JsonSyntaxException e) {
+            prettyJson = "Invalid JSON";
+        }
+        this.jsonTextArea.setText(prettyJson);
+    }
+
+    private void reset() {
+        jsonTextArea.setText("");
+        outputTextPane.setText("");
+    }
+
+    private void convert() {
         String inputJSON = jsonTextArea.getText();
-        String typedScheme = fetch(inputJSON);
+        String typedScheme = RemoteServer.fetch(inputJSON);
         outputTextPane.setText(typedScheme);
     }
-
-    public String formatTSURI(String input) throws URISyntaxException {
-        URIBuilder ub = new URIBuilder("http://json2ts.com/Home/GetTypeScriptDefinition");
-        ub.addParameter("code", input);
-        ub.addParameter("ns", "someModule");
-        ub.addParameter("root", "root");
-        return ub.toString();
-    }
-
-    public String fetch(String input) {
-        try {
-            HttpRequestFactory requestFactory = new NetHttpTransport().createRequestFactory();
-            HttpRequest request = requestFactory
-                    .buildPostRequest(new GenericUrl(formatTSURI(input)), new EmptyContent());
-            return request
-                    .execute()
-                    .parseAsString()
-                    .replace("\"", "")
-                    .replace("\\r\\n", "<br/>");
-        } catch (Exception e) {
-            return "Oh-Oh! Something went wrong";
-        }
-    }
-
 }
