@@ -1,6 +1,6 @@
 <idea-plugin>
-    <id>com.your.company.unique.plugin.id</id>
-    <name>Plugin display name here</name>
+    <id>com.pavel_kaminsky</id>
+    <name>JSON 2 TS/Flow</name>
     <version>1.0</version>
     <vendor email="contact@pavel-kaminsky.com" url="http://www.pavel-kaminsky.com">YourCompany</vendor>
 
@@ -15,7 +15,7 @@
     </change-notes>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
-    <idea-version since-build="173.0"/>
+    <idea-version since-build="135.0"/>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
@@ -24,7 +24,7 @@
     -->
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="JSON To Types" icon="/com.pavel_kaminsky/ts_icon.png" anchor="right"
+        <toolWindow id="JSON To Types" icon="/com/pavel_kaminsky/ts_icon.png" anchor="right"
                     factoryClass="com.pavel_kaminsky.J2TToolWindowFactory"/>
     </extensions>
 
