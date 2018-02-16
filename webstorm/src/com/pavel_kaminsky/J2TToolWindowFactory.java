@@ -41,7 +41,8 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
         String uglyJson = this.jsonTextArea.getText();
         String prettyJson;
         try {
-            prettyJson = JSONUtils.prettifyJSON(uglyJson);
+            prettyJson = uglyJson.length() == 0 ? "" :
+                    JSONUtils.prettifyJSON(uglyJson);
         } catch (JsonSyntaxException e) {
             prettyJson = "Invalid JSON";
         }
@@ -55,7 +56,8 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
 
     private void convert() {
         String inputJSON = jsonTextArea.getText();
-        String typedScheme = RemoteServer.fetch(inputJSON);
+        String jsonType = typeComboBox.getModel().getSelectedItem().toString().toLowerCase();
+        String typedScheme = RemoteServer.fetch(inputJSON, jsonType);
         outputTextPane.setText(typedScheme);
     }
 }
