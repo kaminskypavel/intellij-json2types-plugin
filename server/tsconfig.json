@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "outDir": "dist",
+    "sourceMap": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "alwaysStrict": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/**/*.spec.ts"
+  ]
+}
