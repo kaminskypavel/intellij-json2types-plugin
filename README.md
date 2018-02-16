@@ -1,4 +1,4 @@
-# intellij-json2types-plugin
+# json2types (JSON to Typescript / JSON to Flow)
 a plugin to convert json to typescript and flow schemas
 
 ## Install
