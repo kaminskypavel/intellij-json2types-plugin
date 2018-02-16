@@ -20,13 +20,14 @@
       </component>
       <component id="c52be" class="javax.swing.JComboBox" binding="typeComboBox">
         <constraints>
-          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <model>
             <item value="TypeScript"/>
             <item value="Flow"/>
           </model>
+          <toolTipText value="This is where your result appears"/>
         </properties>
       </component>
       <component id="30cd4" class="javax.swing.JLabel">
@@ -55,29 +56,31 @@
       </component>
       <scrollpane id="d54b5">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
           <component id="87207" class="javax.swing.JTextArea" binding="jsonTextArea">
             <constraints/>
-            <properties/>
+            <properties>
+              <autoscrolls value="false"/>
+            </properties>
           </component>
         </children>
       </scrollpane>
       <scrollpane id="26c2a">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="3" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="c2cf0" class="javax.swing.JTextPane" binding="outputTextPane">
+          <component id="5d615" class="javax.swing.JTextArea" binding="outputTextArea">
             <constraints/>
             <properties>
-              <contentType value="text/html"/>
-              <text value="&lt;html&gt;&#13;&#10;  &lt;head&gt;&#13;&#10;    &#13;&#10;  &lt;/head&gt;&#13;&#10;  &lt;body&gt;&#13;&#10;  &lt;/body&gt;&#13;&#10;&lt;/html&gt;&#13;&#10;"/>
+              <editable value="false"/>
+              <lineWrap value="true"/>
             </properties>
           </component>
         </children>

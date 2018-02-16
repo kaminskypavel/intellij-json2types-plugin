@@ -19,9 +19,9 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
     private JComboBox typeComboBox;
     private JTextArea jsonTextArea;
     private JButton convertButton;
-    private JTextPane outputTextPane;
     private JButton resetButton;
     private JButton prettifyJSONButton;
+    private JTextArea outputTextArea;
     private ToolWindow toolWindow;
 
     public void createToolWindowContent(Project project, ToolWindow toolWindow) {
@@ -51,13 +51,13 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
 
     private void reset() {
         jsonTextArea.setText("");
-        outputTextPane.setText("");
+        outputTextArea.setText("");
     }
 
     private void convert() {
         String inputJSON = jsonTextArea.getText();
         String jsonType = typeComboBox.getModel().getSelectedItem().toString().toLowerCase();
         String typedScheme = RemoteServer.fetch(inputJSON, jsonType);
-        outputTextPane.setText(typedScheme);
+        outputTextArea.setText(typedScheme);
     }
 }
