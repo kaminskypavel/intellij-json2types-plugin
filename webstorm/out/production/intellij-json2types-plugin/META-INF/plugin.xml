@@ -24,7 +24,7 @@
     -->
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow id="JSON To Types" icon="/com/pavel_kaminsky/ts_icon.png" anchor="right"
+        <toolWindow id="JSON2Types" icon="/com/pavel_kaminsky/ts_icon.png" anchor="right"
                     factoryClass="com.pavel_kaminsky.J2TToolWindowFactory"/>
     </extensions>
 
