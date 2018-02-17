@@ -27,7 +27,7 @@ public class J2TToolWindowFactory implements ToolWindowFactory {
     public void createToolWindowContent(Project project, ToolWindow toolWindow) {
         this.toolWindow = toolWindow;
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
-        Content content = contentFactory.createContent(this.content, "", false);
+        Content content = contentFactory.createContent(this.content, "JSON2Types", false);
         toolWindow.getContentManager().addContent(content);
     }
 

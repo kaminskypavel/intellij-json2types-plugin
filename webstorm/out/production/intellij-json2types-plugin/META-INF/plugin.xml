@@ -2,7 +2,7 @@
     <id>com.pavel_kaminsky</id>
     <name>JSON 2 TS/Flow</name>
     <version>1.0</version>
-    <vendor email="contact@pavel-kaminsky.com" url="http://www.pavel-kaminsky.com">YourCompany</vendor>
+    <vendor email="kaminsky.pavel@gmail.com" url="http://www.pavel-kaminsky.com">Kodio</vendor>
 
     <description><![CDATA[
       Convert any JSON to Typescript or Flow<br>
